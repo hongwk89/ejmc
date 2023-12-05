@@ -72,6 +72,7 @@ body {
   text-align: center;
   font-weight: bold;
   font-size: 14px;
+  color: #000;
 }
 .marker_wrap .marker .detail {
   display: grid;
@@ -92,7 +93,6 @@ body {
 .marker_wrap:hover .marker .detail {
   opacity: 1;
   transition: 0.5s;
-  width: 200px;
   box-sizing: content-box;
   min-height: 40px;
 }
@@ -101,6 +101,7 @@ body {
   justify-content: space-between;
   align-items: center;
   min-height: 20px;
+  width: 100px;
 }
 .marker_wrap .marker .detail > div span {
   font-size: 12px;
@@ -116,6 +117,7 @@ body {
   color: #555;
 }
 .marker_wrap .marker .detail > div span:last-child {
+  color: #000;
   font-weight: bold;
 }
 

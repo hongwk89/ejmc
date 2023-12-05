@@ -1,6 +1,6 @@
 "use client";
 import axios from "axios";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect } from "react";
 import styled from "styled-components";
 
 interface mapInfo {
