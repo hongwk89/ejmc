@@ -78,7 +78,6 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 10px;
-  width: 0;
   position: absolute;
   left: calc(100% - 10px);
   top: 50%;
@@ -101,6 +100,10 @@ body {
   justify-content: space-between;
   align-items: center;
   min-height: 20px;
+  width: 0;
+  transition: 0.5s;
+}
+.marker_wrap:hover .marker .detail > div {
   width: 100px;
 }
 .marker_wrap .marker .detail > div span {

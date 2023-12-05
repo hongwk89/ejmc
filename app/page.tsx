@@ -59,6 +59,10 @@ export default function Home() {
           { name: "가로주택", cnt: info.streetHouseCnt },
         ];
 
+        const cntAll = cntArr.reduce((acc, cur) => acc + cur.cnt, 0);
+
+        if (cntAll === 0) return;
+
         const content = [
           '<div class="marker_wrap">',
           '<div class="marker">',
@@ -66,8 +70,7 @@ export default function Home() {
           '<span class="districtName">' +
             (info.districtNmSimple ?? info.districtNm),
           "</span>",
-          '<span class="districtCount">' +
-            cntArr.reduce((acc, cur) => acc + cur.cnt, 0),
+          '<span class="districtCount">' + cntAll,
           "</span>",
           "</div>",
           '<div class="detail">',
@@ -88,7 +91,7 @@ export default function Home() {
 
         content.push("</div>", "</div>", "</div>");
 
-        new naver.maps.Marker({
+        const marker = new naver.maps.Marker({
           position: new naver.maps.LatLng(
             parseFloat(info.latitude),
             parseFloat(info.longitude)
@@ -99,6 +102,10 @@ export default function Home() {
             size: new naver.maps.Size(38, 58),
             anchor: new naver.maps.Point(19, 58),
           },
+        });
+
+        naver.maps.Event.addListener(marker, "click", function (e) {
+          map.zoomBy(4, e.overlay.position, true);
         });
       });
 
@@ -119,8 +126,6 @@ export default function Home() {
       datum.current = [];
       getData();
     });
-
-    naver.maps.Event.addListener(map, "click", () => {});
   }, []);
 
   return (
