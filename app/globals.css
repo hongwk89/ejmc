@@ -25,3 +25,117 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+.marker_wrap {
+  position: relative;
+}
+.marker_wrap:hover {
+  z-index: 10;
+}
+.marker_wrap:hover .marker {
+  animation-name: bounce;
+  animation-duration: 0.8s;
+}
+.marker_wrap .marker {
+  position: relative;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.3));
+}
+.marker_wrap .marker .name_cnt {
+  position: relative;
+  padding: 5px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 1px 0 2px -2px #000;
+  z-index: 1;
+}
+.marker_wrap .marker .name_cnt::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 10px solid transparent;
+  border-top: 10px solid #fff;
+}
+.marker_wrap .marker .name_cnt .districtName {
+  display: block;
+  padding: 3px 12px;
+  background: #ef4e56;
+  color: #fff;
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+.marker_wrap .marker .name_cnt .districtCount {
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  font-size: 14px;
+}
+.marker_wrap .marker .detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 10px;
+  width: 0;
+  position: absolute;
+  left: calc(100% - 10px);
+  top: 50%;
+  transform: translateY(-50%);
+  background: #fff;
+  border-radius: 5px;
+  overflow: hidden;
+  padding: 5px 10px 5px 20px;
+  opacity: 0;
+  transition: 0s;
+}
+.marker_wrap:hover .marker .detail {
+  opacity: 1;
+  transition: 0.5s;
+  width: 200px;
+  box-sizing: content-box;
+  min-height: 40px;
+}
+.marker_wrap .marker .detail > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 20px;
+}
+.marker_wrap .marker .detail > div span {
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0s;
+}
+.marker_wrap:hover .marker .detail > div span {
+  opacity: 1;
+  transition: opacity 0.5s 0.5s;
+}
+.marker_wrap .marker .detail > div span:first-child {
+  color: #555;
+}
+.marker_wrap .marker .detail > div span:last-child {
+  font-weight: bold;
+}
+
+@keyframes bounce {
+  0% {
+    bottom: 0;
+  }
+  25% {
+    bottom: 0;
+  }
+  55% {
+    bottom: 10px;
+  }
+  70% {
+    bottom: 0;
+  }
+  85% {
+    bottom: 5px;
+  }
+  100% {
+    bottom: 0;
+  }
+}
