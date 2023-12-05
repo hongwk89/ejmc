@@ -112,7 +112,7 @@ export default function Home() {
         });
 
         naver.maps.Event.addListener(marker, "click", function (e) {
-          map.zoomBy(4, e.overlay.position, true);
+          map.morph(e.overlay.position, 12);
         });
       });
 
