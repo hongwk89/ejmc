@@ -114,9 +114,9 @@ export default function Home() {
         naver.maps.Event.addListener(marker, "click", function (e) {
           map.morph(e.overlay.position, 12);
         });
-      });
 
-      datum.current = res.data;
+        datum.current?.push(info);
+      });
     };
 
     getData();
