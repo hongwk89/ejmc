@@ -53,13 +53,17 @@ export default function Home() {
 
         const cntArr = [
           { name: "재개발", cnt: info.reDevelopmentCnt },
-          { name: "소규모재건축", cnt: info.maintenanceSmallCnt },
           { name: "재건축", cnt: info.reConstructionCnt },
-          { name: "도시개발(환지)", cnt: info.collectHouseCnt },
           { name: "가로주택", cnt: info.streetHouseCnt },
+          { name: "소규모재건축", cnt: info.maintenanceSmallCnt },
+          { name: "도시개발(환지)", cnt: info.collectHouseCnt },
         ];
 
         const cntAll = cntArr.reduce((acc, cur) => acc + cur.cnt, 0);
+        const listCnt = cntArr.reduce(
+          (acc, cur) => (cur.cnt !== 0 ? acc + 1 : acc),
+          0
+        );
 
         if (cntAll === 0) return;
 
@@ -73,7 +77,10 @@ export default function Home() {
           '<span class="districtCount">' + cntAll,
           "</span>",
           "</div>",
-          '<div class="detail">',
+          '<div class="detail' +
+            (listCnt < 2 ? " less" : "") +
+            (listCnt > 4 ? " over" : "") +
+            '">',
         ];
 
         cntArr.map((data) => {

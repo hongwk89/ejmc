@@ -76,7 +76,8 @@ body {
 }
 .marker_wrap .marker .detail {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-auto-flow: column;
+  grid-template-rows: 1fr 1fr;
   column-gap: 10px;
   position: absolute;
   left: calc(100% - 10px);
@@ -88,6 +89,12 @@ body {
   padding: 5px 10px 5px 20px;
   opacity: 0;
   transition: 0s;
+}
+.marker_wrap .marker .detail.less {
+  grid-template-rows: 1fr;
+}
+.marker_wrap .marker .detail.over {
+  grid-template-rows: 1fr 1fr 1fr;
 }
 .marker_wrap:hover .marker .detail {
   opacity: 1;
