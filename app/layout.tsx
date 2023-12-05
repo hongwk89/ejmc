@@ -22,7 +22,7 @@ export default function RootLayout({
       <body className={noto.className}>
         <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
         <Script
-          src={`https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${process.env.NEXT_PUBLIC_MAP_KEY}`}
+          src={`https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=loox14q4ci`}
           strategy="beforeInteractive"
         ></Script>
       </body>
